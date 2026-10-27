@@ -16,7 +16,7 @@
 
             Console.WriteLine(grades[0]);
 
-            Console.WriteLine(grades[grades.Count-1]);
+            Console.WriteLine(grades[grades.Count - 1]);
 
             grades.Sort();
             Console.WriteLine("\nSorted Grades:");
@@ -44,6 +44,33 @@
             {
                 Console.WriteLine(description);
             }
+
+            #endregion
+
+
+            #region Exercise 6: Browser History (Undo)
+
+            Stack<string> history = new Stack<string>();
+
+            history.Push("google.com");
+            history.Push("github.com");
+            history.Push("stackoverflow.com");
+            history.Push("youtube.com");
+            history.Push("claude.ai");
+
+            Console.WriteLine($"Current Page: {history.Peek()}");
+
+            for (int i = 0; i < 3; i++)
+            {
+                string leavingPage = history.Pop();
+                Console.WriteLine($"Leaving Page: {leavingPage}");
+            }
+
+            Console.WriteLine($"Current Page After Back: {history.Peek()}");
+
+            Stack<string> emptyHistory = new Stack<string>();
+            bool success = emptyHistory.TryPop(out string page);
+            Console.WriteLine($"TryPop succeeded: {success}");
 
             #endregion
         }
