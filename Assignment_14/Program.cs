@@ -36,13 +36,43 @@
             bool has100 = grades.Any(g => g == 100);
             Console.WriteLine($"Contains 100: {has100}");
 
-            List<string> gradeDescriptions = grades
-            .Select(g => $"Grade: {g}")
-            .ToList();
+            List<string> gradeDescriptions = grades. Select(g => $"Grade: {g}") .ToList();
             Console.WriteLine("Grade Descriptions:");
             foreach (string description in gradeDescriptions)
             {
                 Console.WriteLine(description);
+            }
+
+            #endregion
+
+
+            #region Exercise 2: Leaderboard
+            SortedDictionary<int, string> leaderboard = new(){
+                {500 , "Ahmed" },
+                { 200 , "Sara" },
+                { 800 , "Ali" },
+                { 350 , "Mona" }
+            };
+
+            foreach(var player in leaderboard)
+            {
+                Console.WriteLine($"{player.Key} = {player.Value}");
+            }
+
+            Console.WriteLine(leaderboard.Keys.First());
+            Console.WriteLine(leaderboard.Values.First());
+
+            Console.WriteLine(leaderboard.ContainsKey(500)) ;
+
+            if (leaderboard.TryGetValue(999, out string playerName))
+                Console.WriteLine(playerName);
+            else
+                Console.WriteLine("Player not found");
+
+            leaderboard.Remove(200);
+            foreach (var player in leaderboard)
+            {
+                Console.WriteLine($"{player.Key} = {player.Value}");
             }
 
             #endregion
