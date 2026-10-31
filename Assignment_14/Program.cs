@@ -116,6 +116,39 @@
             #endregion
 
 
+            #region Exercise 4 :  Unique Email Validator
+
+            HashSet<string> emails = new (StringComparer.OrdinalIgnoreCase);
+
+            emails.Add("ahmed@test.com");
+            emails.Add("AHMED@test.com");
+            emails.Add("sara@test.com");
+            emails.Add("Sara@Test.Com");
+
+            Console.WriteLine(emails.Count);
+
+            HashSet<int> setA = new HashSet<int> { 1, 2, 3, 4, 5 };
+            HashSet<int> setB = new HashSet<int> { 4, 5, 6, 7, 8 };
+
+            HashSet<int> union = setA;
+            union.UnionWith(setB);
+            Console.WriteLine($"union: {string.Join(", ", union)}");
+
+            HashSet<int> intersection =setA;
+            intersection.IntersectWith(setB);
+            Console.WriteLine($"intersection: {string.Join(", ", intersection)}");
+
+            HashSet<int> difference = setA;
+            difference.ExceptWith(setB);
+            Console.WriteLine($"difference: {string.Join(", ", difference)}");
+
+            HashSet<int> subset = new HashSet<int> { 1, 2 };
+            Console.WriteLine($"is subset: {subset.IsSubsetOf(setA)}");
+
+
+            #endregion
+
+
             #region Exercise 6: Browser History (Undo)
 
             Stack<string> history = new Stack<string>();
