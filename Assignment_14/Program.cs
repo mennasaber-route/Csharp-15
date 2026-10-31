@@ -78,6 +78,44 @@
             #endregion
 
 
+            #region Exercise 3:  Phone Book
+
+            Dictionary<string, string> phoneBook = new()
+            {
+                { "Ahmed", "01011111111" },
+                { "Sara", "01022222222" },
+                { "Mona", "01033333333" },
+                { "Ali", "01044444444" } 
+            };
+
+            phoneBook["Omar"] = "01055555555";
+
+            try
+            {
+                phoneBook.Add("Ahmed", "01111111111");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            bool newPhone = phoneBook.TryAdd("Ahmed", "01222222222");
+            Console.WriteLine(newPhone);
+
+            Console.WriteLine(phoneBook.ContainsKey("Menna"));
+
+            if (phoneBook.TryGetValue("Menna", out string phone))
+                Console.WriteLine(phone);
+            else
+                Console.WriteLine("Not Found");
+
+            Console.WriteLine(string.Join(" , " , phoneBook.Keys));
+            Console.WriteLine(string.Join(" , ", phoneBook.Values));
+
+
+            #endregion
+
+
             #region Exercise 6: Browser History (Undo)
 
             Stack<string> history = new Stack<string>();
