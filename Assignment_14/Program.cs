@@ -149,6 +149,37 @@
             #endregion
 
 
+            #region Exercise 5 :  Print Queue Simulator
+
+            Queue<string> documents = new Queue<string>();
+
+            documents.Enqueue("Report.pdf");
+            documents.Enqueue("Invoice.pdf");
+            documents.Enqueue("Letter.docx");
+            documents.Enqueue("Resume.pdf");
+            documents.Enqueue("Photo.jpg");
+
+            foreach (string document in documents)
+            {
+                Console.WriteLine(document);
+            }
+
+            Console.WriteLine(documents.Count);
+            Console.WriteLine(documents.Peek());
+
+            while (documents.Count > 0)
+            {
+                string document = documents.Dequeue();
+                Console.WriteLine($"Printing: {document}");
+            }
+
+            bool success2 = documents.TryDequeue(out string nextDocument);
+            Console.WriteLine($"TryDequeue succeeded: {success2}");
+
+
+            #endregion
+
+
             #region Exercise 6: Browser History (Undo)
 
             Stack<string> history = new Stack<string>();
